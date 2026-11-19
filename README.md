@@ -91,6 +91,10 @@ Open `src/langs.rs`. A language is a table of states, each a list of `(regex, cl
 cursor; a rule can switch state, which is how multi-line comments and strings work. Add a `lang(...)` entry, and
 `cargo test` checks that every rule compiles.
 
+## AI transparency
+
+Yea i used ai because i cant be bothered to learn rust, too complicated for my dumbass brain. AI was used in this project as a translator, not a way to just sit and watch ai code for me without a care in the world.
+
 ## License
 
 Copyright (C) 2026 Morale
