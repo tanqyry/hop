@@ -1,6 +1,6 @@
 <p align="center"><img src="assets/icon.png" width="96" alt="hop"></p>
 
-# hop
+# hop.
 
 A file explorer for Windows you can type at. Press `/` or `Ctrl+L` and write fragments:
 `ap at 263` opens `AppData\Roaming\ATLauncher\instances\Minecraft263withFabric`.
