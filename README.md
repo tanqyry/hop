@@ -93,4 +93,12 @@ cursor; a rule can switch state, which is how multi-line comments and strings wo
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+Copyright (C) 2026 tanqyry
+
+hop is free software under the [GNU General Public License v3.0](LICENSE) (or any later version).
+
+- You can use it, for personal or any other purpose, and modify it.
+- You must credit the original author and keep the copyright and licence notices.
+- You can't pass it off as your own work.
+- If you share a modified version, you must share its source under the same licence, in the form you'd actually edit it.
+  Obfuscated source doesn't count.
