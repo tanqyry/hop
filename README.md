@@ -93,7 +93,7 @@ cursor; a rule can switch state, which is how multi-line comments and strings wo
 
 ## License
 
-Copyright (C) 2026 tanqyry
+Copyright (C) 2026 Morale
 
 hop is free software under the [GNU General Public License v3.0](LICENSE) (or any later version).
 
