@@ -85,6 +85,13 @@ src/
 ui/              Slint files: theme.slint, parts.slint, app.slint
 ```
 
+## TODO
+
+- [ ] Get 50 stars
+- [ ] File star map: a treemap of what is taking up space, click to drill in
+- [ ] Make the Slint version look more like the original webview version
+- [ ] Get RAM use under 30 MB while using the app (about 45-60 MB now)
+
 ## Adding a language
 
 Open `src/langs.rs`. A language is a table of states, each a list of `(regex, class)` rules tried in order at the
