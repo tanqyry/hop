@@ -3,7 +3,7 @@
 # hop
 
 A file explorer for Windows you can type at. Press `/` or `Ctrl+L` and write fragments:
-`appdata local ath ver` opens `AppData\Local\Athena\versions`.
+`ap at 263` opens `AppData\Roaming\ATLauncher\instances\Minecraft263withFabric`.
 
 Native Rust + [Slint](https://slint.dev), software-rendered: no webview, no GPU driver, about **45–60 MB of RAM** and
 0% CPU when idle.
