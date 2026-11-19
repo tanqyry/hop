@@ -1,0 +1,24 @@
+name: release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (no machine paths in the exe)
+        shell: pwsh
+        run: ./scripts/build-release.ps1
+      - name: Package
+        shell: pwsh
+        run: |
+          Copy-Item target/release/hop.exe hop-windows-x64.exe
+          (Get-FileHash hop-windows-x64.exe -Algorithm SHA256).Hash.ToLower() + "  hop-windows-x64.exe" | Set-Content hop-windows-x64.exe.sha256
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            hop-windows-x64.exe
+            hop-windows-x64.exe.sha256

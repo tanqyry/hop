@@ -1,0 +1,43 @@
+// Design tokens. Same three-surface idea as the web version: frame < mid < sheet, selection and hover by tone, not lines.
+// Radii are concentric: sheet 10, rows inset 4 -> 6, overlays 12, their items 8.
+export global Theme {
+    in property <bool> light: false;
+    out property <color> frame: light ? #dededa : #121214;
+    out property <color> mid: light ? #e9e9e6 : #1b1b1e;
+    out property <color> sheet: light ? #fbfbfa : #242428;
+    out property <color> sheet2: light ? #ffffff : #2c2c31;
+    out property <color> hov: light ? #f0f0ed : #2a2a2f;
+    out property <color> sel: light ? #e3e3df : #34343a;
+    out property <color> sel2: light ? #d8d8d3 : #3d3d44;
+    out property <color> line: light ? #d9d9d4 : #33333a;
+    out property <color> fg: light ? #1c1c1b : #e6e6e3;
+    out property <color> fg2: light ? #5f5f5c : #a2a29f;
+    out property <color> fg3: light ? #92928d : #6f6f72;
+    out property <color> acc: light ? #d4491f : #ee6a45;
+    out property <color> bad: light ? #c23b25 : #e0644e;
+    out property <length> r1: 6px;
+    out property <length> r2: 8px;
+    out property <length> r3: 10px;
+    out property <length> r4: 12px;
+    in property <duration> t-fast: 90ms;
+    in property <duration> t: 150ms;
+    in property <duration> t-slow: 240ms;
+    in property <length> row-h: 30px;
+
+    // syntax colours: quiet on purpose, so code reads as text first
+    public pure function tok(k: int) -> color {
+        return k == 1 ? (light ? #b4502f : #d9876a)
+             : k == 2 ? (light ? #4f7a3f : #9db88c)
+             : k == 3 ? (light ? #946b0f : #d6b66b)
+             : k == 4 ? (light ? #8d8d88 : #6f6f74)
+             : k == 5 ? (light ? #2f6a91 : #8fb2cc)
+             : k == 6 ? (light ? #8a4a82 : #c8a4c0)
+             : k == 7 ? (light ? #2f7873 : #a6c6c1)
+             : k == 8 ? (light ? #7d6b45 : #b7a98d)
+             : k == 9 ? (light ? #7a7a76 : #8d8d90)
+             : k == 11 ? (light ? #3f7d2f : #9db88c)
+             : k == 12 ? (light ? #c23b25 : #e0644e)
+             : k == 10 ? (light ? #c23b25 : #e0644e)
+             : (light ? #1c1c1b : #e6e6e3);
+    }
+}
