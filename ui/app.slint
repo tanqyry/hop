@@ -145,6 +145,8 @@ export component App inherits Window {
     callback bar-closed();
     callback cand-clicked(int);
     callback side-clicked(int);
+    in property <bool> aliases-open: true;
+    callback side-toggle();
     callback side-remove(int);
     callback side-add(string);
     callback row-clicked(int, bool, bool);
@@ -320,7 +322,9 @@ export component App inherits Window {
                                 alignment: start;
                                 for r[i] in root.side: Rectangle {
                                     height: r.kind == 0 ? 34px : (r.kind == 3 ? 46px : 30px);
-                                    if r.kind == 0: Text { x: 8px; y: 12px; text: r.label; color: Theme.fg3; font-size: 12.5px; font-weight: 600; }
+                                    if r.kind == 0 && r.sub == "alias": TouchArea { clicked => { root.side-toggle(); } }
+                                    if r.kind == 0 && r.sub == "alias": Icon { x: 8px; y: 14px; width: 10px; height: 10px; tint: Theme.fg3; d: root.aliases-open ? "M3 6L8 11L13 6" : "M6 3L11 8L6 13"; }
+                                    if r.kind == 0: Text { x: r.sub == "alias" ? 24px : 8px; y: 12px; text: r.label; color: Theme.fg3; font-size: 12.5px; font-weight: 600; }
                                     if r.kind == 0 && r.sub != "": Rectangle {
                                         x: parent.width - 30px; y: 8px; width: 24px; height: 24px; border-radius: Theme.r1;
                                         background: ha.has-hover ? Theme.hov : transparent;
@@ -331,9 +335,9 @@ export component App inherits Window {
                                         border-radius: Theme.r1;
                                         background: sa.has-hover && !r.active ? Theme.hov : transparent;
                                         animate background { duration: Theme.t-fast; }
-                                        sa := TouchArea { clicked => { root.side-clicked(i); } }
-                                        if r.kind == 1 || r.kind == 2: TouchArea {
-                                            pointer-event(ev) => { if (ev.kind == PointerEventKind.down && ev.button == PointerEventButton.right) { root.side-ctx-i = i; root.ctx-x = self.absolute-position.x + self.mouse-x; root.ctx-y = self.absolute-position.y + self.mouse-y; side-popup.show(); } }
+                                        sa := TouchArea {
+                                            clicked => { root.side-clicked(i); }
+                                            pointer-event(ev) => { if ((r.kind == 1 || r.kind == 2) && ev.kind == PointerEventKind.down && ev.button == PointerEventButton.right) { root.side-ctx-i = i; root.ctx-x = self.absolute-position.x + self.mouse-x; root.ctx-y = self.absolute-position.y + self.mouse-y; side-popup.show(); } }
                                         }
                                         if r.kind == 1: HorizontalLayout {
                                             padding-left: 9px; spacing: 9px;

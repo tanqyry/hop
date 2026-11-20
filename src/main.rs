@@ -236,6 +236,7 @@ pub fn push_chrome(ui: &App, st: &mut State) {
         rows.push(SideRow { label: format!("{}{}", &d.path[..2], if d.label.is_empty() { String::new() } else { format!(" {}", d.label) }).into(), sub: format!("{} free", fmt_size(d.free)).into(), path: d.path.as_str().into(), kind: 3, active, meter: if d.total > 0 { used as f32 / d.total as f32 } else { 0.0 } });
         y += 46.0;
     }
+    ui.set_aliases_open(st.cfg.opts.aliases_open);
     ui.set_side_hi_on(hi_on);
     ui.set_side_hi_y(hi_y);
     ui.set_side_hi_h(30.0);
@@ -711,6 +712,7 @@ fn main() {
         if r.kind == 1 { st.cfg.pins.retain(|p| !eq(p, r.path.as_str())); } else if r.kind == 2 { st.cfg.aliases.retain(|a| !(eq(&a.path, r.path.as_str()) && a.name == r.label.as_str())); }
         st.cfg.save(); push_chrome(ui, st);
     } }); });
+    ui.on_side_toggle(|| { with(|ui, st| { st.cfg.opts.aliases_open = !st.cfg.opts.aliases_open; st.cfg.save(); push_chrome(ui, st); }); });
     ui.on_side_add(|k| { with(|ui, st| { if k == "pin" { let p = st.cwd.clone(); toggle_pin(ui, st, &p); } else { add_alias(ui, st); } }); });
     ui.on_row_drag(|i, dy| { with(|ui, st| ops::row_drag(ui, st, i as usize, dy)); });
     ui.on_row_drop(|i, dy| { with(|ui, st| ops::row_drop(ui, st, i as usize, dy)); });
