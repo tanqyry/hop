@@ -10,6 +10,15 @@ Native Rust + [Slint](https://slint.dev), software-rendered: no webview, no GPU 
 
 ![hop, list view](assets/screenshot-list.png)
 
+
+# Please download the app and do as much stuff as possible.
+   The app is not done at all and i keep finding bugs every day. Please help with bug finding, if you do find a bug do one of these things:
+- Write a issue on github explaining in detail the problem with an example and how to recreate it.
+- Do the same thing but instead of writing to github issues DM me on discord `iam_mrmorale`.
+- If youre good at programming fix the issue and make a pull request.
+- If youre not good at coding let an ai coding agent like claude try to fix the issue and make the pull request.
+The app is not that serious so even ai coded contributions are appreciated. If you are against use of AI for silly projects, well dont interact with this repo i guess?
+
 ## What it does
 
 - **Go bar.** Fragments resolve level by level (prefix, word start, initials, typo, fuzzy), backed by a background
